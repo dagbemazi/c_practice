@@ -35,3 +35,21 @@ int add(int a, int b, ...)
 
 The `...` is the prototype used to create a variable number of arguments to a function.
 
+NB: A variadic functions takes at least one normal argument!
+
+The C library provides the following macros to work with variadic functions:
+```
+va_start(va_list ap, paramsN);
+va_arg(val_list, type);
+va_copy(va_list dest, va_list src);
+va_end(va_list ap);
+``` 
+
+The `va_list` is a type the `<stdarg.h>` library declares.
+
+##### Usage
+
+We would learn how some of these prototypes work by modifying our
+`add` function to take variable arguments
+
+
