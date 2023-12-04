@@ -1,21 +1,27 @@
 #include <stdarg.h>
+#include <stdio.h>
 
 
 /**
  * add - add variable number of integers
- * @a: first arg
- * @b: next arg
+ * @count: number of args
+ *
  * Return: sum of arguments
  */
 
-int add(int a, int b, ...)
+int add(int count, ...)
 {
 	va_list numbers;
 	int i, sum = 0;
 
-	va_start(numbers, b);
+	va_start(numbers, count);
 
+	for (i = 0; i < count; i++)
+	{
+		sum += va_arg(numbers, int);
+	}
 
+	return (sum);
 }
 
 /**
@@ -28,7 +34,7 @@ int main(void)
 {
 	int total;
 
-	total = add(10, 39, 49);
+	total = add(2, 39, 49);
 
 	printf("The total is: %d\n", total);
 	return (0);
